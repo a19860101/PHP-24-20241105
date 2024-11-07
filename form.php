@@ -18,7 +18,7 @@
         <input type="submit">
     </form>
     <!-- 
-    在多數的狀況下，表單都用post方法；連結則用get方法，唯一的例外則是搜尋使用get
+        在多數的狀況下，表單都用post方法；連結則用get方法，唯一的例外則是搜尋(表單)使用get
     -->
 </body>
 </html>
