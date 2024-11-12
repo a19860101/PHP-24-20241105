@@ -63,3 +63,15 @@
         echo "<div>備註:{$comment}</div>";
     }
 
+    if(!isset($gender)){
+        echo '請輸入性別';
+    }else{
+        echo "<div>性別:{$gender}</div>";
+    }
+
+    // if(isset($gender)){
+    //     echo "<div>性別:{$gender}</div>";
+    // }else{
+    //     echo '請輸入性別';
+    // }
+
