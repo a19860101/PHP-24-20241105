@@ -19,6 +19,7 @@
         }
         table,td,th {
             border: 1px solid #000;
+            padding: 8px;
         }
     </style>
 </head>
@@ -30,12 +31,21 @@
             <th>id</th>
             <th>姓名</th>
             <th>性別</th>
+            <th colspan="2">動作</th>
         </tr>
         <?php foreach($students as $student){ ?>
         <tr>
             <td><?php echo $student['id'];?></td>
             <td><?php echo $student['name'];?></td>
             <td><?php echo $student['gender'];?></td>
+            <td>
+                <a href="edit.php">詳細資料</a>
+            </td>
+            <td>
+                <form action="delete.php" method="post">
+                    <input type="submit" value="刪除">
+                </form>
+            </td>
         </tr>
         <?php } ?>
 
