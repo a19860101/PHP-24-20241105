@@ -35,6 +35,13 @@
     // 目標位置
     $target = 'images/'.$fullname;
 
+    // 判斷格式是否正確
+    if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
+        echo '<script>alert("請上傳正確的格式")</script>';
+        header('refresh:0;url=index.php');
+        return;
+    }
+
     if($error == 0){
         if(move_uploaded_file($tmp_name,$target)){
             // echo '<script>alert("檔案已上傳")</script>';
