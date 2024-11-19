@@ -27,7 +27,7 @@
 </head>
 <body>
     <h1>詳細資料</h1>
-    <form action="store.php" method="post">
+    <form action="update.php" method="post">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name" value="<?php echo $student['name']; ?>">
@@ -64,8 +64,9 @@
             <label for="">地址</label>
             <input type="text" name="address" value="<?php echo $student['address']; ?>">
         </div>
+        <input type="hidden" name="id" value="<?php echo $student['id'];?>">
         <input type="submit" value="更新資料">
-        <input type="button" value="取消" onclick="history.back()">
-    </for m>
+        <input type="button" value="取消" onclick="location.href='index.php'">
+    </form>
 </body>
 </html>
