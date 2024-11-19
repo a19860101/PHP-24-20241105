@@ -1,7 +1,7 @@
 <?php
     extract($_FILES['data']);
     print_r($_FILES['data']);
-    $target = 'images/'.$name;
+    
 
     if($error == 4){
         echo '<script>alert("請選擇檔案")</script>';
@@ -15,6 +15,25 @@
         header('refresh:0;url=index.php');
         return;
     }
+
+    // 如果資料夾不存在就建立資料夾
+    if(!is_dir('images')){
+        mkdir('images');
+    }
+
+    // 隨機檔名
+    $randName = md5(time());
+
+    // 副檔名
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
+    $ext = strtolower($ext);
+
+    // 完整檔名
+    // $fullname = $randName.'.'.$ext;
+    $fullname = "{$randName}.{$ext}";
+
+    // 目標位置
+    $target = 'images/'.$fullname;
 
     if($error == 0){
         if(move_uploaded_file($tmp_name,$target)){

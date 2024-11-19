@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <?php echo md5(time()); ?>
+    </div>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="">上傳檔案</label>
