@@ -39,7 +39,7 @@
             <td><?php echo $student['name'];?></td>
             <td><?php echo $student['gender'];?></td>
             <td>
-                <a href="edit.php">詳細資料</a>
+                <a href="edit.php?id=<?php echo $student['id'];?>">詳細資料</a>
             </td>
             <td>
                 <form action="delete.php" method="post">
