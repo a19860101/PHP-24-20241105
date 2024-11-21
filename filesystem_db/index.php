@@ -1,7 +1,6 @@
 <?php
-    include('db.php');
-    $sql = 'SELECT * FROM photos ORDER BY id DESC';
-    $imgs = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    include('function.php');
+    $imgs = index();
 ?>
 <!DOCTYPE html>
 <html lang="en">
