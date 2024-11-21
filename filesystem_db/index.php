@@ -1,9 +1,7 @@
 <?php
-    // echo $_REQUEST['img'];
-    if(isset($_REQUEST['delete'])){
-        // echo 'test';
-        unlink($_REQUEST['img']);
-    }
+    include('db.php');
+    $sql = 'SELECT * FROM photos ORDER BY id DESC';
+    $imgs = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +25,12 @@
         </div>
         <input type="submit" value="上傳">
     </form>
-    <?php
-        $imgs = glob('images/{*.jpg,*.jpeg,*.png,*.gif,*.webp}',GLOB_BRACE);
-    ?>
     <?php foreach($imgs as $img){ ?>
         <div>
-            <img src="<?php echo $img; ?>" alt="" width="200">
+            <h3><?php echo $img['name']; ?></h3>
+            <img src="images/<?php echo $img['path']; ?>" alt="" width="200">
             <form action="" method="post">
-                <input type="hidden" name="img" value="<?php echo $img; ?>">
+                <input type="hidden" name="id" value="<?php echo $img['id']; ?>">
                 <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除？')">
             </form>
         </div>

@@ -47,13 +47,19 @@
     $sql = 'INSERT INTO photos(name,path,created_at)VALUES(?,?,?)';
     $stmt = $pdo->prepare($sql);
 
+
+    // 檔案名稱
     if($img_name == ''){
         $img_name = $name;
     }
 
+    // 日期
+    date_default_timezone_set('Asia/Taipei');
+    $now = date('Y-m-d H:i:s');
+
     if($error == 0){
         if(move_uploaded_file($tmp_name,$target)){
-            $stmt->execute([$img_name,$fullname,'2024-11-21']);
+            $stmt->execute([$img_name,$fullname,$now]);
 
             echo '<script>alert("檔案已上傳")</script>';
             header('refresh:0;url=index.php');
