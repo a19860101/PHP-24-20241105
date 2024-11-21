@@ -29,8 +29,9 @@
         <div>
             <h3><?php echo $img['name']; ?></h3>
             <img src="images/<?php echo $img['path']; ?>" alt="" width="200">
-            <form action="" method="post">
+            <form action="delete.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $img['id']; ?>">
+                <input type="hidden" name="path" value="<?php echo $img['path']; ?>">
                 <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除？')">
             </form>
         </div>
