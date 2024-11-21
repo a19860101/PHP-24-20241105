@@ -1,6 +1,7 @@
 <?php
+    include('db.php');
     extract($_FILES['data']);
-    print_r($_FILES['data']);
+    extract($_REQUEST);
     
 
     if($error == 4){
@@ -42,8 +43,18 @@
         return;
     }
 
+    // SQL
+    $sql = 'INSERT INTO photos(name,path,created_at)VALUES(?,?,?)';
+    $stmt = $pdo->prepare($sql);
+
+    if($img_name == ''){
+        $img_name = $name;
+    }
+
     if($error == 0){
         if(move_uploaded_file($tmp_name,$target)){
+            $stmt->execute([$img_name,$fullname,'2024-11-21']);
+
             echo '<script>alert("檔案已上傳")</script>';
             header('refresh:0;url=index.php');
         }

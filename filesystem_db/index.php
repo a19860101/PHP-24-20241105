@@ -18,6 +18,10 @@
     </div>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <div>
+            <label for="">檔案名稱</label>
+            <input type="text" name="img_name">
+        </div>
+        <div>
             <label for="">上傳檔案</label>
             <input type="file" name="data">
         </div>
