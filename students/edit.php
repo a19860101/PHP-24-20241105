@@ -36,6 +36,7 @@
             <label for="">大頭照</label>
             <?php if($student['avatar'] != null){ ?>
                 <img src="images/<?php echo $student['avatar'];?>"width="100">
+                <input type="hidden" name="avatar" value="<?php echo $student['avatar'];?>">
                 <a href="delete_avatar.php?id=<?php echo $student['id'];?>&avatar=<?php echo $student['avatar'];?>">刪除</a>
             <?php } ?>
             <?php if($student['avatar'] == null){ ?>

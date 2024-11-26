@@ -1,5 +1,8 @@
 <?php 
     include('db.php');
+
+    unlink('images/'.$_REQUEST['avatar']);
+
     $sql = 'DELETE FROM students WHERE id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$_REQUEST['id']]);
