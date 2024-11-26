@@ -37,11 +37,13 @@
         $target = 'images/'.$fullname;
 
     // 判斷格式是否正確
-    
-        if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
-            echo '<script>alert("請上傳正確的格式")</script>';
-            header('refresh:0;url=edit.php?id='.$id);
-            return;
+        if($error == 0){
+
+            if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
+                echo '<script>alert("請上傳正確的格式")</script>';
+                header('refresh:0;url=edit.php?id='.$id);
+                return;
+            }
         }
     }   
     // 更新資料
@@ -94,9 +96,9 @@
             echo '系統無法使用檔案上傳功能';
             break;
         default:
-            $fullname = null;
-            // $stmt = $pdo->prepare($sql);
+            $fullname = $avatar;
             $stmt->execute([$name,$fullname,$gender,$phone,$email,$address,$id]);
+            echo '<script>alert("資料已修改");</script>';
             break;
 
 
