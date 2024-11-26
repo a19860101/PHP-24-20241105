@@ -7,10 +7,14 @@
 </head>
 <body>
     <h1>新增資料</h1>
-    <form action="store.php" method="post">
+    <form action="store.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name">
+        </div>
+        <div>
+            <label for="">大頭照</label>
+            <input type="file" name="avatar">
         </div>
         <div>
             <label for="">性別</label>
