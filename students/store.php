@@ -8,7 +8,7 @@
     $error = $_FILES['avatar']['error'];
     $size = $_FILES['avatar']['size'];
     $avatar_name = $_FILES['avatar']['name'];
-    $tmp_name = $_FILES['avatar']['tmp_name'];
+    $tmp_name = $_FILES['ava2tar']['tmp_name'];
 
     if($error == 4){
         echo '<script>alert("請選擇檔案")</script>';

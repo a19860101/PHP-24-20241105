@@ -29,6 +29,7 @@
     <table>
         <tr>
             <th>id</th>
+            <th>照片</th>
             <th>姓名</th>
             <th>性別</th>
             <th colspan="2">動作</th>
@@ -36,6 +37,14 @@
         <?php foreach($students as $student){ ?>
         <tr>
             <td><?php echo $student['id'];?></td>
+            <td>
+                <?php if($student['avatar'] != null){ ?>
+                <img src="images/<?php echo $student['avatar'];?>"width="100">
+                <?php } ?>
+                <?php if($student['avatar'] == null){ ?>
+                    尚未上傳
+                <?php } ?>
+            </td>
             <td><?php echo $student['name'];?></td>
             <td><?php echo $student['gender'];?></td>
             <td>
