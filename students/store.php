@@ -8,7 +8,7 @@
     $error = $_FILES['avatar']['error'];
     $size = $_FILES['avatar']['size'];
     $avatar_name = $_FILES['avatar']['name'];
-    $tmp_name = $_FILES['ava2tar']['tmp_name'];
+    $tmp_name = $_FILES['avatar']['tmp_name'];
 
     if($error == 4){
         echo '<script>alert("請選擇檔案")</script>';
@@ -44,8 +44,8 @@
 
     // 判斷格式是否正確
     if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
-        // echo '<script>alert("請上傳正確的格式")</script>';
-        // header('refresh:0;url=create.php');
+        echo '<script>alert("請上傳正確的格式")</script>';
+        header('refresh:0;url=create.php');
         return;
     }
     // 新增資料

@@ -27,10 +27,20 @@
 </head>
 <body>
     <h1>詳細資料</h1>
-    <form action="update.php" method="post">
+    <form action="update.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name" value="<?php echo $student['name']; ?>">
+        </div>
+        <div>
+            <label for="">大頭照</label>
+            <?php if($student['avatar'] != null){ ?>
+                <img src="images/<?php echo $student['avatar'];?>"width="100">
+                <a href="delete_avatar.php?id=<?php echo $student['id'];?>&avatar=<?php echo $student['avatar'];?>">刪除</a>
+            <?php } ?>
+            <?php if($student['avatar'] == null){ ?>
+                <input type="file" name="avatar">
+            <?php } ?>
         </div>
         <div>
             <label for="">性別</label>
