@@ -19,7 +19,7 @@
         $max_size = 1 * 1024 * 1024;
         if($size > $max_size){
             echo '<script>alert("檔案超過限制")</script>';
-            header('refresh:0;url=create.php');
+            header('refresh:0;url=edit.php?id='.$id);
             return;
         }
 
