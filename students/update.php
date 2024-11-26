@@ -38,7 +38,6 @@
 
     // 判斷格式是否正確
         if($error == 0){
-
             if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
                 echo '<script>alert("請上傳正確的格式")</script>';
                 header('refresh:0;url=edit.php?id='.$id);
@@ -58,7 +57,6 @@
             WHERE id = ?
     ';  
     $stmt = $pdo->prepare($sql);
-    // $stmt->execute([$name,$fullname,$gender,$phone,$email,$address,$id]);
     
     switch($error){
         case 0:
@@ -81,10 +79,9 @@
             break;     
         case 4:
             $fullname = null;
-            // $stmt = $pdo->prepare($sql);
             $stmt->execute([$name,$fullname,$gender,$phone,$email,$address,$id]);
-            echo '<script>alert("資料已修改");</script>';
-            // header('refresh:0;url=index.php');
+            echo '<script>alert("學員資料已更新 4");</script>';
+            header('refresh:0;url=edit.php?id='.$id);
             break;
         case 6:
             echo '遺失暫存資料夾';
@@ -98,30 +95,14 @@
         default:
             $fullname = $avatar;
             $stmt->execute([$name,$fullname,$gender,$phone,$email,$address,$id]);
-            echo '<script>alert("資料已修改");</script>';
+            echo '<script>alert("學員資料已更新 default");</script>';
+            header('refresh:0;url=edit.php?id='.$id);
             break;
 
 
 
     }
 
-    // if($error == 0){
-    //     if(move_uploaded_file($tmp_name,$target)){
-    //         $stmt->execute([$name,$fullname,$gender,$phone,$email,$address,$id]);
-    //         echo '<script>alert("學員資料已更新");</script>';
-    //         header('refresh:0;url=edit.php?id='.$id);
-    //     }
-    // }else if($error == 4){
-    //     $stmt->execute([$name,null,$gender,$phone,$email,$address,$id]);
-    //     echo '<script>alert("學員資料已更新");</script>';
-    //     header('refresh:0;url=edit.php?id='.$id);
-    // }else{
-        // echo $error;
-        // echo '<script>alert("發生錯誤，請洽網站管理員")</script>';
-        // header('refresh:0;url=index.php');
-
-
-    // }
 
     /* 
         有圖片時，不移除圖片更新資料
