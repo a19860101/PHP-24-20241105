@@ -4,7 +4,14 @@
     function store($request){
         extract($request);
         $sql = 'INSERT INTO users(username,password,created_at)VALUES(?,?,?)';
-        
+
+        if(empty($username) || empty($password)){
+            return [
+                'errorCode' => 9,
+                'status' => '請輸入資料'
+            ];
+        }
+
         //檢查是否重複註冊
         if(checkUser($username) != 0){
             return checkUser($username);
