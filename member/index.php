@@ -10,10 +10,12 @@
 </head>
 <body>
     <nav>
+        <a href="index.php">首頁</a>
         <?php if(!isset($_SESSION['AUTH'])){ ?>
         <a href="create.php">會員註冊</a>
         <?php } ?>
         <?php if(isset($_SESSION['AUTH'])){ ?>
+        <a href="list.php">會員列表</a>
         <a href="logout.php">登出</a>
         <?php } ?>
     </nav>

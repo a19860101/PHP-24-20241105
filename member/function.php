@@ -72,4 +72,10 @@
                 'status' => '帳號或密碼錯誤'
             ];
         }
+        
+    }
+    function index(){
+        $sql = 'SELECT * FROM users ORDER BY id DESC';
+        $result = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
