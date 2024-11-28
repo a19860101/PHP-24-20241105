@@ -5,6 +5,7 @@
         extract($request);
         $sql = 'INSERT INTO users(username,password,created_at)VALUES(?,?,?)';
         
+        //檢查是否重複註冊
         if(checkUser($username) != 0){
             return checkUser($username);
         }
