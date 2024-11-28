@@ -17,6 +17,7 @@
             <input type="password" name="password">
         </div>
         <input type="submit" value="註冊">
+        <input type="button" value="取消" onclick="location.href='index.php'">
     </form>
 </body>
 </html>
