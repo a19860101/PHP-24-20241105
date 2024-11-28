@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 'admin'){
+        echo "<script>alert('您沒有權限')</script>";
+        header('refresh:0;url=index.php');
+    }
     include('function.php');
     $users = index();
 ?>
