@@ -40,3 +40,29 @@
             return 0;
         }
     }
+    function auth($request){
+        session_start();
+        extract($request);
+        $sql = 'SELECT * FROM users WHERE username = ?';
+        $stmt = pdo()->prepare($sql);
+        $stmt->execute([$username]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(!$user){
+            return [
+                'errorCode' => 3,
+                'status' => '帳號不存在，請重新註冊或登入'
+            ];
+        }
+        if(password_verify($password,$user['password'])){
+            $_SESSION['AUTH'] = $user;
+            return [
+                'errorCode' => 0,
+                'status' => '登入成功'
+            ];
+        }else{
+            return [
+                'errorCode' => 4,
+                'status' => '帳號或密碼錯誤'
+            ];
+        }
+    }

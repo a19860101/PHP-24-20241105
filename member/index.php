@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,10 @@
         <a href="create.php">會員註冊</a>
     </nav>
     <h1>會員系統</h1>
-    <form action="" method="post">
+    <?php
+        echo $_SESSION['AUTH']['username'];
+    ?>
+    <form action="auth.php" method="post">
         <div>
             <label for="">帳號</label>
             <input type="text" name="username">

@@ -7,10 +7,12 @@
 
     echo "<script>alert('{$status}')</script>";
 
-    $errorCode == 0 ? 
-    header('refresh:0;url=index.php') :
-    header('refresh:0;url=create.php');
+    // $errorCode == 0 ? 
+    // header('refresh:0;url=index.php') :
+    // header('refresh:0;url=create.php');
 
+    $url = $errorCode == 0 ? 'index.php' : 'create.php';
+    header('refresh:0;url='.$url);
 
 
     
