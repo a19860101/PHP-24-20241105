@@ -79,3 +79,15 @@
         $result = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+    function set_role($id,$role){
+        $sql = 'UPDATE users SET role=?,updated_at=? WHERE id=?';
+        $stmt = pdo()->prepare($sql);
+
+        $role = $role == 'admin'?'member':'admin';
+        // if($role=='admin'){
+        //     $role = 'member';
+        // }else{
+        //     $role = 'admin';
+        // }
+        $stmt->execute([$role,now(),$id]);
+    }

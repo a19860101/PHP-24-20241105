@@ -35,12 +35,28 @@
             <th>ID</th>
             <th>Username</th>
             <th>建立日期</th>
+            <th>角色</th>
+            <th>動作</th>
         </tr>
         <?php foreach($users as $user){ ?>
         <tr>
             <td><?php echo $user['id'];?></td>
             <td><?php echo $user['username'];?></td>
             <td><?php echo $user['created_at'];?></td>
+            <td>
+                <?php echo $user['role'] == 'admin'? '管理員':'一般會員';?>
+            </td>
+            <td>
+                <?php if($user['role'] == 'admin'){ ?>
+                    <?php if($user['id'] == $_SESSION['AUTH']['id']){ ?>
+                    <span>管理員</span>
+                    <?php }else{ ?>
+                    <a href="setRole.php?id=<?php echo $user['id'];?>&role=<?php echo $user['role'];?>">撤銷管理員</a>
+                    <?php } ?>
+                <?php }else{ ?>
+                <a href="setRole.php?id=<?php echo $user['id'];?>&role=<?php echo $user['role'];?>">設定為管理員</a>
+                <?php } ?>
+            </td>
         </tr>
         <?php } ?>
     </table>
