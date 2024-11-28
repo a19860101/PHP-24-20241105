@@ -75,7 +75,7 @@
         
     }
     function index(){
-        $sql = 'SELECT * FROM users ORDER BY id DESC';
+        $sql = 'SELECT * FROM users ORDER BY updated_at DESC';
         $result = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }

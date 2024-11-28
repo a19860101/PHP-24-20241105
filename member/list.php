@@ -22,11 +22,15 @@
 <body>
     <nav>
         <a href="index.php">首頁</a>
+        
         <?php if(!isset($_SESSION['AUTH'])){ ?>
         <a href="create.php">會員註冊</a>
         <?php } ?>
+        
         <?php if(isset($_SESSION['AUTH'])){ ?>
-        <a href="list.php">會員列表</a>
+            <?php if($_SESSION['AUTH']['role'] == 'admin'){ ?>
+            <a href="list.php">會員列表</a>
+            <?php } ?>
         <a href="logout.php">登出</a>
         <?php } ?>
     </nav>
@@ -35,6 +39,7 @@
             <th>ID</th>
             <th>Username</th>
             <th>建立日期</th>
+            <th>更新日期</th>
             <th>角色</th>
             <th>動作</th>
         </tr>
@@ -43,6 +48,7 @@
             <td><?php echo $user['id'];?></td>
             <td><?php echo $user['username'];?></td>
             <td><?php echo $user['created_at'];?></td>
+            <td><?php echo $user['updated_at']??'尚未修改';?></td>
             <td>
                 <?php echo $user['role'] == 'admin'? '管理員':'一般會員';?>
             </td>
