@@ -1,0 +1,16 @@
+{
+    "name": "zac/web",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Zac\\Web\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zac",
+            "email": "a19860101@gmail.com"
+        }
+    ],
+    "require": {}
+}
