@@ -1,9 +1,11 @@
 <?php
     include('../vendor/autoload.php');
+    use Zac\Web\Config\DB;
 
-    echo Zac\Web\Config\DB::db();
+    // print_r(DB::db());
+    echo Zac\Web\Config\DB::now();
+    echo DB::now();
 
-    echo Zac\Web\Controller\Post::index();
 ?>
 <!DOCTYPE html>
 <html lang="en">
