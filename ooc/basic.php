@@ -29,6 +29,10 @@
         function showHP(){
             return $this->hp;
         }
+
+        static function msg(){
+            return 'HELLO';
+        }
     }
 
     // 建立實體
@@ -62,6 +66,8 @@
     echo $n1->showHP();
     // print_r($n1);
     // echo $n1->jump();
+
+    echo Human::msg();
 
 
     /* 
