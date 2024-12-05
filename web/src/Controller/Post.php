@@ -25,4 +25,9 @@
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result;
         }
+        static function delete($id){
+            $sql = 'DELETE FROM posts WHERE id = ?';
+            $stmt = DB::db()->prepare($sql);
+            $stmt->execute([$id]);
+        }
     }

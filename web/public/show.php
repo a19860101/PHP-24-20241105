@@ -13,6 +13,10 @@
         <div>
             <a href="index.php" class="text-blue-600" >文章列表</a>
         </div>
+        <form action="delete.php" method="post">
+            <input type="hidden" value="<?php echo $post['id'];?>" name="id">
+            <input type="submit" value="刪除" onclick="return confirm('確認刪除？')" class="px-8 py-2 bg-red-500 text-white rounded-lg">
+        </form>
     </div>
 </div>
 <?php include('template/footer.php'); ?>
