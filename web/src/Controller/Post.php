@@ -17,4 +17,12 @@
             $stmt = DB::db()->prepare($sql);
             $stmt->execute([$title,$body,DB::now()]);
         }
+        static function show($request){
+            extract($request);
+            $sql = 'SELECT * FROM posts WHERE id = ?';
+            $stmt = DB::db()->prepare($sql);
+            $stmt->execute([$id]);
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
