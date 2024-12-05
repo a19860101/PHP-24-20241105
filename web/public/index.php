@@ -18,7 +18,10 @@
         <h2 class="text-xl font-bold"><?php echo $post['title']; ?></h2>
         <div><?php echo $post['created_at'];?></div>
         <div>
-            <?php echo $post['body']; ?>
+            <?php echo mb_substr($post['body'],0,100); ?>...
+        </div>
+        <div class="text-right">
+            <a href="show.php?id=<?php echo $post['id'];?>" class="text-blue-600" >繼續閱讀</a>
         </div>
     </div>
 <?php } ?>
