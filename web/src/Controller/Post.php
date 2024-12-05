@@ -40,8 +40,8 @@
         }
         static function update($request){
             extract($request);
-            $sql = 'UPDATE posts SET title=?,body=? WHERE id =?';
+            $sql = 'UPDATE posts SET title=?,body=?,updated_at=? WHERE id =?';
             $stmt = DB::db()->prepare($sql);
-            $stmt->execute([$title,$body,$id]);
+            $stmt->execute([$title,$body,DB::now(),$id]);
         }
     }

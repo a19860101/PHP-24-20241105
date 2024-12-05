@@ -16,7 +16,9 @@
 <?php foreach($posts as $post){ ?>
     <div class="bg-zinc-200 p-4 rounded-lg">
         <h2 class="text-xl font-bold"><?php echo $post['title']; ?></h2>
-        <div><?php echo $post['created_at'];?></div>
+        <div>
+            <small>更新時間：<?php echo $post['updated_at']??$post['created_at'];?></small>
+        </div>
         <div>
             <?php echo mb_substr($post['body'],0,100); ?>...
         </div>
