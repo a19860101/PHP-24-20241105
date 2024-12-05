@@ -7,3 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <nav class="flex *:p-4 bg-zinc-900 text-zinc-100">
+        <a href="index.php">文章首頁</a>
+        <a href="create.php">建立文章</a>
+    </nav>
