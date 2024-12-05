@@ -17,6 +17,7 @@
             <input type="hidden" value="<?php echo $post['id'];?>" name="id">
             <input type="submit" value="刪除" onclick="return confirm('確認刪除？')" class="px-8 py-2 bg-red-500 text-white rounded-lg">
         </form>
+        <a href="edit.php?id=<?php echo $post['id'];?>" class="inline-block px-8 py-2 bg-teal-500 text-white rounded-lg">編輯</a>
     </div>
 </div>
 <?php include('template/footer.php'); ?>
