@@ -2,10 +2,13 @@
     namespace Zac\Web\Controller;
 
     use Zac\Web\Config\DB;
+    // use PDO;
 
     class Post {
         static function index(){
-            return 'Post Index';
+            $sql = 'SELECT * FROM posts ORDER BY id DESC';
+            $result = DB::db()->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
         }
         static function store($request){
             extract($request);
