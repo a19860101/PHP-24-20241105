@@ -1,7 +1,7 @@
 <?php include('template/header.php'); ?>
 <div class="container mx-auto">
     <div class="w-1/2 p-8">
-        <form action="">
+        <form action="store.php" method="post">
             <div class="mb-3">
                 <label for="">文章標題</label>
                 <input type="text" name="title" class="border border-zinc-700 rounded-lg">
